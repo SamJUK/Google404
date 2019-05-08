@@ -1,0 +1,11 @@
+.git/
+.idea/
+.vscode/
+.atom/
+node_modules/
+
+# Files
+full-output.json
+404-output.json
+output.pdf
+ss/*.png
