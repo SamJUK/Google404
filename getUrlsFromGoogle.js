@@ -9,14 +9,14 @@ const scrape_pages = async data => {
     let morePages = true;
     let dd = {};
     let search = `https://www.google.com/search?q=site:${process.env.site}`;
-    await global.page.goto(search, {'waitUntil': 'networkidle0'});
+    await global.page.goto(search, {'waitUntil': 'networkidle0',timeout: 0});
     console.log('loaded page');
     while(morePages) {
         res = await global.page.evaluate(() => Array.from(document.querySelectorAll('a[href][ping]')).map(e=>e.href).filter(e=>!e.includes('google.com')&&!e.includes('webcache')));
 
         for (let i=0;i<res.length;i++) {
             let element = res[i];
-            let hdrs = await global.page1.goto(element);
+            let hdrs = await global.page1.goto(element, {'waitUntil': 'networkidle0',timeout: 0});
             let status = hdrs.status();
             console.log(`${status} - ${element}`);
 

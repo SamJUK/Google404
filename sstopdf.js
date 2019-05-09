@@ -5,7 +5,7 @@ var fs = require('fs');
 pdf.pipe(fs.createWriteStream('output.pdf'));
 
 
-var files = fs.readdirSync('./ss/').filter(e=>!['.DS_Store','.','..'].includes(e));
+var files = fs.readdirSync('./ss/').filter(e=>!['.DS_Store','.gitkeep','.','..'].includes(e));
 
 let ogOffset = [10, 20];
 let offset = ogOffset;
